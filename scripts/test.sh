@@ -6,6 +6,9 @@ test_folder() {
     do
         time ruby --disable=gems src/rubyfmt.rb `echo $file | sed s/expected/actual/` > /tmp/out.rb
         diff -u /tmp/out.rb $file
+
+        time ruby --disable=gems src/rubyfmt.rb $file > /tmp/out.rb
+        diff -u /tmp/out.rb $file
     done
 }
 
